@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '../../lib/utils'
-import { Primitive, type PrimitiveProps } from 'reka-ui'
-import { type ButtonVariants, buttonVariants } from '.'
+import type { HTMLAttributes } from 'vue';
+import { cn } from '../../lib/utils';
+import { Primitive, type PrimitiveProps } from 'reka-ui';
+import { type ButtonVariants, buttonVariants } from '.';
 
 interface Props extends PrimitiveProps {
-    color?: ButtonVariants['color']
-    type?: ButtonVariants['type']
-    size?: ButtonVariants['size']
-    shape?: ButtonVariants['shape']
-    state?: ButtonVariants['state']
-    isLoading?: boolean
-    icon?: boolean // enables slot-based icon layout
-    iconPosition?: 'left' | 'right'
-    class?: HTMLAttributes['class']
+    color?: ButtonVariants['color'];
+    type?: ButtonVariants['type'];
+    size?: ButtonVariants['size'];
+    state?: ButtonVariants['state'];
+    isLoading?: boolean;
+    icon?: boolean // disables slot-based icon layout
+    iconPosition?: 'left' | 'right';
+    class?: HTMLAttributes['class'];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -36,7 +35,6 @@ const props = withDefaults(defineProps<Props>(), {
                     color,
                     type,
                     size,
-                    shape,
                     state,
                 }),
                 props.class,

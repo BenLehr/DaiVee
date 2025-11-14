@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '../../lib/utils'
-import { Primitive, type PrimitiveProps } from 'reka-ui'
-import { type ButtonVariants, buttonVariants } from '.'
+import type {HTMLAttributes} from 'vue';
 
 const props = defineProps<{
-    class?: HTMLAttributes['class']
+    class?: HTMLAttributes['class'];
 }>()
 
 </script>
 
 <template>
     <div class="card-body">
-      <slot></slot>
+        <slot></slot>
     </div>
 </template>

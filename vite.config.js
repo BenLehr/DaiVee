@@ -7,4 +7,9 @@ export default defineConfig({
         vue(),
         vueDevTools(),
     ],
+    build: {
+        rollupOptions: {
+            external: ['vue']
+        }
+    }
 });
