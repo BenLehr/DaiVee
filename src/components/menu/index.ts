@@ -2,7 +2,7 @@ import {cva, type VariantProps} from 'class-variance-authority'
 
 export {default as Menu} from './Menu.vue'
 
-export const MenuVariants = cva(
+export const menuVariants = cva(
     'menu',
     {
         variants: {
@@ -21,9 +21,9 @@ export const MenuVariants = cva(
         },
         defaultVariants: {
             size: 'default',
-            type: 'default',
+            direction: 'horizontal',
         },
     },
 )
 
-export type MenuVariants = VariantProps<typeof MenuVariants>
+export type MenuVariants = VariantProps<typeof menuVariants>
