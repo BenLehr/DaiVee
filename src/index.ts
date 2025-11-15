@@ -17,6 +17,6 @@ export {default as Avatar} from './components/avatar/Avatar.vue';
 export {default as AvatarGroup} from './components/avatar/AvatarGroup.vue';
 
 
-//Avatar
+//Dropwdown
 export {default as Dropdown} from './components/dropdown/Dropdown.vue';
 
