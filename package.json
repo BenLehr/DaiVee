@@ -1,8 +1,16 @@
 {
-  "name": "trio.daisy-ui",
+  "name": "daiVee",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
+  "main": "./dist/daiVee.umd.js",
+  "module": "./dist/daiVee.es.js",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/daiVee.es.js",
+      "require": "./dist/daiVee.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
