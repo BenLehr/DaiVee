@@ -20,3 +20,6 @@ export {default as AvatarGroup} from './components/avatar/AvatarGroup.vue';
 //Dropwdown
 export {default as Dropdown} from './components/dropdown/Dropdown.vue';
 
+
+//Dropwdown
+export {default as Link} from './components/link/Link.vue';
