@@ -1,7 +1,5 @@
 import {cva, type VariantProps} from 'class-variance-authority'
 
-export {default as Button} from './Button.vue'
-
 export const buttonVariants = cva(
     'btn',
     {
@@ -16,7 +14,7 @@ export const buttonVariants = cva(
                 warning: 'btn-warning',
                 error: 'btn-error',
             },
-            type: {
+            style: {
                 default: '',
                 outline: 'btn-outline',
                 soft: 'btn-soft',
@@ -31,27 +29,35 @@ export const buttonVariants = cva(
                 md: 'btn-md',
                 lg: 'btn-lg',
                 xl: 'btn-xl',
+            },
+            modifier: {
+                default: '',
                 wide: 'btn-wide',
                 block: 'btn-block',
                 square: 'btn-square',
                 circle: 'btn-circle',
             },
-            state: {
+            behavior: {
                 default: '',
                 active: 'btn-active',
                 disabled: 'btn-disabled',
-                loading: 'loading',
             },
+            htmlTag: {
+                // todo: maybe here is a better solution with native attributes
+                button: 'button',
+                routerLink: 'RouterLink',
+                link: 'link',
+                span: 'span',
+                div: 'div'
+            }
         },
-        compoundVariants: [
-            {type: 'outline', color: 'primary', class: 'btn-outline btn-primary'},
-            {type: 'outline', color: 'error', class: 'btn-outline btn-error'},
-        ],
         defaultVariants: {
             color: 'primary',
-            type: 'default',
+            style: 'default',
             size: 'md',
-            state: 'default',
+            modifier: 'default',
+            behavior: 'default',
+            htmlTag: 'div',
         },
     },
 )

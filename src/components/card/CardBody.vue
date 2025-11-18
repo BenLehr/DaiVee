@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import type {HTMLAttributes} from 'vue';
+import {cn} from "../../lib/utils";
 
 const props = defineProps<{
     class?: HTMLAttributes['class'];
 }>()
 
+const classes = cn(
+    'card-body',
+    props.class,
+);
+
 </script>
 
 <template>
-    <div class="card-body">
-        <slot></slot>
+    <div :class="classes">
+        <slot/>
     </div>
 </template>

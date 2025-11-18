@@ -6,15 +6,15 @@ const props = defineProps<{
     class?: HTMLAttributes['class'];
 }>()
 
+const classes = cn(
+    props.class,
+);
+
+
 </script>
 
 <template>
-    <figure :class="
-      cn(
-        '',
-        props.class,
-      )
-    ">
-        <slot></slot>
+    <figure :class="classes">
+        <slot/>
     </figure>
 </template>

@@ -1,11 +1,14 @@
 <script setup>
 
 import Buttons     from "./previews/Buttons.vue";
-import Links       from "./previews/Links.vue";
 import ThemeSwitch from "./previews/ThemeSwitch.vue";
 import Dropdown    from "./components/dropdown/Dropdown.vue";
-import { Menu }    from "./components/menu/index.js";
 import Avatar      from "./components/avatar/Avatar.vue";
+import Card        from "./components/card/Card.vue";
+import CardTitle   from "./components/card/CardTitle.vue";
+import CardBody    from "./components/card/CardBody.vue";
+import CardActions from "./components/card/CardActions.vue";
+import Btn         from "./components/button/Btn.vue";
 </script>
 
 <template>
@@ -14,10 +17,19 @@ import Avatar      from "./components/avatar/Avatar.vue";
 
     <div class="flex flex-col gap-4">
 
-        <!-- Button's -->
-        <Buttons></Buttons>
+        <Card class="w-96 bg-primary" :style="'dash'">
+            <CardBody>
+                <CardTitle>Yolo</CardTitle>
+                <p>wdwddwdw</p>
+                <p>wdwddwdw</p>
+                <CardActions>
+                    <Btn color="neutral">Neutral</Btn>
+                    <Btn color="primary">Primary</Btn>
+                </CardActions>
+            </CardBody>
+        </Card>
 
-        <Links></Links>
+        <!-- Button's -->
 
         <Buttons></Buttons>
 
@@ -33,11 +45,7 @@ import Avatar      from "./components/avatar/Avatar.vue";
             </template>
 
             <template #default>
-<Menu>
-    <MenubarItem>wddw</MenubarItem>
-    <MenubarItem>wddw</MenubarItem>
-    <MenubarItem>wddw</MenubarItem>
-</Menu>
+                efvklmnverfgmvbknrnk
             </template>
 
         </Dropdown>

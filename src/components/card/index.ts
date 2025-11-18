@@ -1,17 +1,15 @@
-import { cva, type VariantProps } from 'class-variance-authority'
-
-export { default as Card } from './Card.vue'
+import {cva, type VariantProps} from 'class-variance-authority'
 
 export const cardVariants = cva(
     'card',
     {
         variants: {
-            border: {
+            style: {
                 default: '',
                 dash: 'card-dash',
                 solid: 'card-border'
             },
-            imageModifier: {
+            modifier: {
                 default: '',
                 side: 'card-side',
                 full: 'image-full',
@@ -19,18 +17,17 @@ export const cardVariants = cva(
             size: {
                 xs: 'card-xs',
                 sm: 'card-sm',
-                md: 'card-md',           // default size
+                md: 'card-md',
                 lg: 'card-lg',
                 xl: 'card-xl',
             },
         },
         defaultVariants: {
-            border: 'default',
-            imageModifier: 'default',
+            style: 'default',
+            modifier: 'default',
             size: 'md',
-            state: 'default',
         },
     },
 )
 
-export type ButtonVariants = VariantProps<typeof buttonVariants>
+export type CardVariants = VariantProps<typeof cardVariants>

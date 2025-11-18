@@ -6,15 +6,15 @@ const props = defineProps<{
     class?: HTMLAttributes['class'];
 }>()
 
+const classes = cn(
+    'card-actions  justify-end',
+    props.class,
+);
+
 </script>
 
 <template>
-    <div :class="
-      cn(
-        'card-actions justify-end',
-        props.class,
-      )
-    ">
-        <slot></slot>
+    <div :class="classes">
+        <slot/>
     </div>
 </template>

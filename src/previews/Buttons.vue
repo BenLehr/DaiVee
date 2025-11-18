@@ -1,5 +1,5 @@
 <script setup>
-import Button         from "../components/button/Button.vue";
+import Btn            from "../components/button/Btn.vue";
 import PreviewSection from "../PreviewSection.vue";
 </script>
 
@@ -11,14 +11,14 @@ import PreviewSection from "../PreviewSection.vue";
                 <div class="flex gap-4">
                     <!-- Default primary button -->
                     <div class="flex flex-wrap gap-2">
-                        <Button color="neutral">Neutral</Button>
-                        <Button color="primary">Primary</Button>
-                        <Button color="secondary">Secondary</Button>
-                        <Button color="accent">Accent</Button>
-                        <Button color="info">Info</Button>
-                        <Button color="success">Success</Button>
-                        <Button color="warning">Warning</Button>
-                        <Button color="error">Error</Button>
+                        <Btn color="neutral">Neutral</Btn>
+                        <Btn color="primary">Primary</Btn>
+                        <Btn color="secondary">Secondary</Btn>
+                        <Btn color="accent">Accent</Btn>
+                        <Btn color="info">Info</Btn>
+                        <Btn color="success">Success</Btn>
+                        <Btn color="warning">Warning</Btn>
+                        <Btn color="error">Error</Btn>
                     </div>
                 </div>
 
@@ -26,28 +26,28 @@ import PreviewSection from "../PreviewSection.vue";
                 <div class="flex gap-4">
                     <!-- Default primary button -->
                     <div class="flex flex-wrap gap-2">
-                        <Button size="xs">XS</Button>
-                        <Button size="sm">SM</Button>
-                        <Button size="md">MD</Button>
-                        <Button size="lg">LG</Button>
-                        <Button size="xl">XL</Button>
+                        <Btn size="xs">XS</Btn>
+                        <Btn size="sm">SM</Btn>
+                        <Btn size="md">MD</Btn>
+                        <Btn size="lg">LG</Btn>
+                        <Btn size="xl">XL</Btn>
 
-                        <Button size="square">S</Button>
-                        <Button size="circle" color="primary">+</Button>
-                        <Button size="wide" color="secondary">Wide Button</Button>
-                        <Button size="block" color="accent">Block Button</Button>
-
-
-                        <Button type="soft">Soft</Button>
-                        <Button type="ghost">Ghost</Button>
-                        <Button type="link">Link</Button>
-                        <Button type="dashed">Dashed</Button>
-                        <Button type="glass">Glass</Button>
+                        <Btn size="square">S</Btn>
+                        <Btn size="circle" color="primary">+</Btn>
+                        <Btn size="wide" color="secondary">Wide Button</Btn>
+                        <Btn size="block" color="accent">Block Button</Btn>
 
 
-                        <Button color="error" type="outline" state="loading">Loading</Button>
-                        <Button color="warning" type="active">Active</Button>
-                        <Button color="neutral" type="disabled">Disabled</Button>
+                        <Btn type="soft">Soft</Btn>
+                        <Btn type="ghost">Ghost</Btn>
+                        <Btn type="link">Link</Btn>
+                        <Btn type="dashed">Dashed</Btn>
+                        <Btn type="glass">Glass</Btn>
+
+
+                        <Btn color="error" type="outline" state="loading">Loading</Btn>
+                        <Btn color="warning" type="active">Active</Btn>
+                        <Btn color="neutral" type="disabled">Disabled</Btn>
                     </div>
                 </div>
 

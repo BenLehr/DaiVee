@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import type {HTMLAttributes} from 'vue';
-import {cn} from '../../lib/utils';
+import type { HTMLAttributes } from 'vue'
+import { useVariantClasses } from '../../composables/useVariantClasses'
+import { cardVariants, type CardVariants } from '.'
 
+// Accept card props
 const props = defineProps<{
-    class?: HTMLAttributes['class'];
+    modifier?: CardVariants['modifier']
+    size?: CardVariants['size']
+    style?: CardVariants['style']
+    class?: HTMLAttributes['class']
 }>()
 
+// Merge CVA + user classes
+const cardClass = useVariantClasses(cardVariants, props)
 </script>
 
 <template>
-    <div
-        data-slot="card"
-        :class="
-      cn(
-        'card bg-base-100 w-96 shadow-sm',
-        props.class,
-      )
-    "
-    >
-        <slot/>
+    <div :class="cardClass">
+        <slot />
     </div>
 </template>
