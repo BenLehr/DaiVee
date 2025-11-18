@@ -2,6 +2,7 @@
 
 import Buttons     from "./previews/Buttons.vue";
 import ThemeSwitch from "./previews/ThemeSwitch.vue";
+import Textareas   from "./previews/Textareas.vue";
 import Dropdown    from "./components/dropdown/Dropdown.vue";
 import Avatar      from "./components/avatar/Avatar.vue";
 import Card        from "./components/card/Card.vue";
@@ -72,6 +73,7 @@ import ExampleForm from "@/previews/ExampleForm.vue";
 
     </div>
 
+    <Textareas />
 
 </template>
 
