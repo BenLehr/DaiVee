@@ -11,6 +11,7 @@ import CardBody    from "./components/card/CardBody.vue";
 import CardActions from "./components/card/CardActions.vue";
 import { Fab }     from "@/components/fab/index.js";
 import ExampleForm from "@/previews/ExampleForm.vue";
+import Labels      from "./previews/Labels.vue";
 </script>
 
 
@@ -70,6 +71,8 @@ import ExampleForm from "@/previews/ExampleForm.vue";
             </template>
 
         </Dropdown>
+
+        <Labels />
 
     </div>
 
