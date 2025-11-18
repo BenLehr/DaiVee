@@ -13,6 +13,8 @@ export {default as Avatar} from './components/avatar/Avatar.vue';
 export {default as AvatarGroup} from './components/avatar/AvatarGroup.vue';
 
 
-//Dropwdown
+//Dropdown
 export {default as Dropdown} from './components/dropdown/Dropdown.vue';
 
+//
+export {default as Alert} from './components/alert/Alert.vue';

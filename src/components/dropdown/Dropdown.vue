@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type {HTMLAttributes} from "vue";
-import {useVariantClasses} from "../../composables/useVariantClasses";
+import {useVariantClasses} from "@/composables/useVariantClasses";
 import {dropdownVariants, DropdownVariants} from "./index";
 
 const props = defineProps<{

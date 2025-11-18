@@ -98,7 +98,7 @@ export function cn(...inputs: ClassValue[]) {
 // composables/useVariantClasses.ts
 import { computed, type ComputedRef } from 'vue'
 import type { ClassValue } from 'clsx'
-import { cn } from '../lib/utils'
+import { cn } from '@/lib/utils'
 import type { VariantProps } from 'class-variance-authority'
 
 /**
@@ -202,7 +202,7 @@ import { computed } from 'vue'
 import type { HTMLAttributes } from 'vue'
 import type { ButtonHTMLAttributes } from '@vue/runtime-dom'
 
-import { useVariantClasses } from '../../composables/useVariantClasses'
+import { useVariantClasses } from '@/composables/useVariantClasses'
 import { buttonVariants, type ButtonVariants } from '.'
 
 const props = withDefaults(defineProps<{
@@ -364,7 +364,7 @@ Card.vue
 <!-- components/card/Card.vue -->
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { useVariantClasses } from '../../composables/useVariantClasses'
+import { useVariantClasses } from '@/composables/useVariantClasses'
 import { cardVariants, type CardVariants } from '.'
 
 const props = defineProps<{
@@ -524,7 +524,7 @@ export type AlertVariants = VariantProps<typeof alertVariants>
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { alertVariants, type AlertVariants } from '.'
-import { useVariantClasses } from '../../composables/useVariantClasses'
+import { useVariantClasses } from '@/composables/useVariantClasses'
 
 const props = defineProps<{
   color?: AlertVariants['color']

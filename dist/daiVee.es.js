@@ -1,35 +1,35 @@
-import { computed as Me, defineComponent as V, createElementBlock as G, createBlock as Ue, openBlock as z, normalizeClass as _, unref as A, renderSlot as S, resolveDynamicComponent as qe, withCtx as Ye, createElementVNode as de } from "vue";
-function Te(e) {
-  var r, o, t = "";
-  if (typeof e == "string" || typeof e == "number") t += e;
+import { computed as Ie, defineComponent as R, createElementBlock as T, createBlock as Ue, openBlock as _, normalizeClass as z, unref as A, renderSlot as S, resolveDynamicComponent as qe, withCtx as Ye, createElementVNode as ue } from "vue";
+function Me(e) {
+  var r, t, o = "";
+  if (typeof e == "string" || typeof e == "number") o += e;
   else if (typeof e == "object") if (Array.isArray(e)) {
     var s = e.length;
-    for (r = 0; r < s; r++) e[r] && (o = Te(e[r])) && (t && (t += " "), t += o);
-  } else for (o in e) e[o] && (t && (t += " "), t += o);
-  return t;
+    for (r = 0; r < s; r++) e[r] && (t = Me(e[r])) && (o && (o += " "), o += t);
+  } else for (t in e) e[t] && (o && (o += " "), o += t);
+  return o;
 }
-function Pe() {
-  for (var e, r, o = 0, t = "", s = arguments.length; o < s; o++) (e = arguments[o]) && (r = Te(e)) && (t && (t += " "), t += r);
-  return t;
+function Ve() {
+  for (var e, r, t = 0, o = "", s = arguments.length; t < s; t++) (e = arguments[t]) && (r = Me(e)) && (o && (o += " "), o += r);
+  return o;
 }
 const Xe = (e, r) => {
-  const o = new Array(e.length + r.length);
-  for (let t = 0; t < e.length; t++)
-    o[t] = e[t];
-  for (let t = 0; t < r.length; t++)
-    o[e.length + t] = r[t];
-  return o;
+  const t = new Array(e.length + r.length);
+  for (let o = 0; o < e.length; o++)
+    t[o] = e[o];
+  for (let o = 0; o < r.length; o++)
+    t[e.length + o] = r[o];
+  return t;
 }, Je = (e, r) => ({
   classGroupId: e,
   validator: r
-}), Ve = (e = /* @__PURE__ */ new Map(), r = null, o) => ({
+}), Pe = (e = /* @__PURE__ */ new Map(), r = null, t) => ({
   nextPart: e,
   validators: r,
-  classGroupId: o
+  classGroupId: t
 }), se = "-", Ce = [], Ke = "arbitrary..", He = (e) => {
   const r = Ze(e), {
-    conflictingClassGroups: o,
-    conflictingClassGroupModifiers: t
+    conflictingClassGroups: t,
+    conflictingClassGroupModifiers: o
   } = e;
   return {
     getClassGroupId: (l) => {
@@ -40,21 +40,21 @@ const Xe = (e, r) => {
     },
     getConflictingClassGroupIds: (l, f) => {
       if (f) {
-        const c = t[l], p = o[l];
+        const c = o[l], p = t[l];
         return c ? p ? Xe(p, c) : c : p || Ce;
       }
-      return o[l] || Ce;
+      return t[l] || Ce;
     }
   };
-}, Ge = (e, r, o) => {
+}, Ge = (e, r, t) => {
   if (e.length - r === 0)
-    return o.classGroupId;
-  const s = e[r], i = o.nextPart.get(s);
+    return t.classGroupId;
+  const s = e[r], i = t.nextPart.get(s);
   if (i) {
     const p = Ge(e, r + 1, i);
     if (p) return p;
   }
-  const l = o.validators;
+  const l = t.validators;
   if (l === null)
     return;
   const f = r === 0 ? e.join(se) : e.slice(r).join(se), c = l.length;
@@ -64,62 +64,62 @@ const Xe = (e, r) => {
       return b.classGroupId;
   }
 }, Qe = (e) => e.slice(1, -1).indexOf(":") === -1 ? void 0 : (() => {
-  const r = e.slice(1, -1), o = r.indexOf(":"), t = r.slice(0, o);
-  return t ? Ke + t : void 0;
+  const r = e.slice(1, -1), t = r.indexOf(":"), o = r.slice(0, t);
+  return o ? Ke + o : void 0;
 })(), Ze = (e) => {
   const {
     theme: r,
-    classGroups: o
+    classGroups: t
   } = e;
-  return eo(o, r);
-}, eo = (e, r) => {
-  const o = Ve();
-  for (const t in e) {
-    const s = e[t];
-    ue(s, o, t, r);
+  return et(t, r);
+}, et = (e, r) => {
+  const t = Pe();
+  for (const o in e) {
+    const s = e[o];
+    fe(s, t, o, r);
   }
-  return o;
-}, ue = (e, r, o, t) => {
+  return t;
+}, fe = (e, r, t, o) => {
   const s = e.length;
   for (let i = 0; i < s; i++) {
     const l = e[i];
-    oo(l, r, o, t);
+    tt(l, r, t, o);
   }
-}, oo = (e, r, o, t) => {
+}, tt = (e, r, t, o) => {
   if (typeof e == "string") {
-    to(e, r, o);
+    ot(e, r, t);
     return;
   }
   if (typeof e == "function") {
-    ro(e, r, o, t);
+    rt(e, r, t, o);
     return;
   }
-  so(e, r, o, t);
-}, to = (e, r, o) => {
-  const t = e === "" ? r : $e(r, e);
-  t.classGroupId = o;
-}, ro = (e, r, o, t) => {
-  if (no(e)) {
-    ue(e(t), r, o, t);
+  st(e, r, t, o);
+}, ot = (e, r, t) => {
+  const o = e === "" ? r : $e(r, e);
+  o.classGroupId = t;
+}, rt = (e, r, t, o) => {
+  if (nt(e)) {
+    fe(e(o), r, t, o);
     return;
   }
-  r.validators === null && (r.validators = []), r.validators.push(Je(o, e));
-}, so = (e, r, o, t) => {
+  r.validators === null && (r.validators = []), r.validators.push(Je(t, e));
+}, st = (e, r, t, o) => {
   const s = Object.entries(e), i = s.length;
   for (let l = 0; l < i; l++) {
     const [f, c] = s[l];
-    ue(c, $e(r, f), o, t);
+    fe(c, $e(r, f), t, o);
   }
 }, $e = (e, r) => {
-  let o = e;
-  const t = r.split(se), s = t.length;
+  let t = e;
+  const o = r.split(se), s = o.length;
   for (let i = 0; i < s; i++) {
-    const l = t[i];
-    let f = o.nextPart.get(l);
-    f || (f = Ve(), o.nextPart.set(l, f)), o = f;
+    const l = o[i];
+    let f = t.nextPart.get(l);
+    f || (f = Pe(), t.nextPart.set(l, f)), t = f;
   }
-  return o;
-}, no = (e) => "isThemeGetter" in e && e.isThemeGetter === !0, ao = (e) => {
+  return t;
+}, nt = (e) => "isThemeGetter" in e && e.isThemeGetter === !0, at = (e) => {
   if (e < 1)
     return {
       get: () => {
@@ -127,126 +127,126 @@ const Xe = (e, r) => {
       set: () => {
       }
     };
-  let r = 0, o = /* @__PURE__ */ Object.create(null), t = /* @__PURE__ */ Object.create(null);
+  let r = 0, t = /* @__PURE__ */ Object.create(null), o = /* @__PURE__ */ Object.create(null);
   const s = (i, l) => {
-    o[i] = l, r++, r > e && (r = 0, t = o, o = /* @__PURE__ */ Object.create(null));
+    t[i] = l, r++, r > e && (r = 0, o = t, t = /* @__PURE__ */ Object.create(null));
   };
   return {
     get(i) {
-      let l = o[i];
+      let l = t[i];
       if (l !== void 0)
         return l;
-      if ((l = t[i]) !== void 0)
+      if ((l = o[i]) !== void 0)
         return s(i, l), l;
     },
     set(i, l) {
-      i in o ? o[i] = l : s(i, l);
+      i in t ? t[i] = l : s(i, l);
     }
   };
-}, me = "!", ze = ":", lo = [], _e = (e, r, o, t, s) => ({
+}, pe = "!", _e = ":", lt = [], ze = (e, r, t, o, s) => ({
   modifiers: e,
   hasImportantModifier: r,
-  baseClassName: o,
-  maybePostfixModifierPosition: t,
+  baseClassName: t,
+  maybePostfixModifierPosition: o,
   isExternal: s
-}), io = (e) => {
+}), it = (e) => {
   const {
     prefix: r,
-    experimentalParseClassName: o
+    experimentalParseClassName: t
   } = e;
-  let t = (s) => {
+  let o = (s) => {
     const i = [];
     let l = 0, f = 0, c = 0, p;
     const b = s.length;
-    for (let v = 0; v < b; v++) {
-      const k = s[v];
+    for (let x = 0; x < b; x++) {
+      const k = s[x];
       if (l === 0 && f === 0) {
-        if (k === ze) {
-          i.push(s.slice(c, v)), c = v + 1;
+        if (k === _e) {
+          i.push(s.slice(c, x)), c = x + 1;
           continue;
         }
         if (k === "/") {
-          p = v;
+          p = x;
           continue;
         }
       }
       k === "[" ? l++ : k === "]" ? l-- : k === "(" ? f++ : k === ")" && f--;
     }
     const y = i.length === 0 ? s : s.slice(c);
-    let w = y, R = !1;
-    y.endsWith(me) ? (w = y.slice(0, -1), R = !0) : (
+    let w = y, I = !1;
+    y.endsWith(pe) ? (w = y.slice(0, -1), I = !0) : (
       /**
        * In Tailwind CSS v3 the important modifier was at the start of the base class name. This is still supported for legacy reasons.
        * @see https://github.com/dcastil/tailwind-merge/issues/513#issuecomment-2614029864
        */
-      y.startsWith(me) && (w = y.slice(1), R = !0)
+      y.startsWith(pe) && (w = y.slice(1), I = !0)
     );
-    const I = p && p > c ? p - c : void 0;
-    return _e(i, R, w, I);
+    const M = p && p > c ? p - c : void 0;
+    return ze(i, I, w, M);
   };
   if (r) {
-    const s = r + ze, i = t;
-    t = (l) => l.startsWith(s) ? i(l.slice(s.length)) : _e(lo, !1, l, void 0, !0);
+    const s = r + _e, i = o;
+    o = (l) => l.startsWith(s) ? i(l.slice(s.length)) : ze(lt, !1, l, void 0, !0);
   }
-  if (o) {
-    const s = t;
-    t = (i) => o({
+  if (t) {
+    const s = o;
+    o = (i) => t({
       className: i,
       parseClassName: s
     });
   }
-  return t;
-}, co = (e) => {
+  return o;
+}, ct = (e) => {
   const r = /* @__PURE__ */ new Map();
-  return e.orderSensitiveModifiers.forEach((o, t) => {
-    r.set(o, 1e6 + t);
-  }), (o) => {
-    const t = [];
+  return e.orderSensitiveModifiers.forEach((t, o) => {
+    r.set(t, 1e6 + o);
+  }), (t) => {
+    const o = [];
     let s = [];
-    for (let i = 0; i < o.length; i++) {
-      const l = o[i], f = l[0] === "[", c = r.has(l);
-      f || c ? (s.length > 0 && (s.sort(), t.push(...s), s = []), t.push(l)) : s.push(l);
+    for (let i = 0; i < t.length; i++) {
+      const l = t[i], f = l[0] === "[", c = r.has(l);
+      f || c ? (s.length > 0 && (s.sort(), o.push(...s), s = []), o.push(l)) : s.push(l);
     }
-    return s.length > 0 && (s.sort(), t.push(...s)), t;
+    return s.length > 0 && (s.sort(), o.push(...s)), o;
   };
-}, mo = (e) => ({
-  cache: ao(e.cacheSize),
-  parseClassName: io(e),
-  sortModifiers: co(e),
+}, dt = (e) => ({
+  cache: at(e.cacheSize),
+  parseClassName: it(e),
+  sortModifiers: ct(e),
   ...He(e)
-}), uo = /\s+/, po = (e, r) => {
+}), mt = /\s+/, ut = (e, r) => {
   const {
-    parseClassName: o,
-    getClassGroupId: t,
+    parseClassName: t,
+    getClassGroupId: o,
     getConflictingClassGroupIds: s,
     sortModifiers: i
-  } = r, l = [], f = e.trim().split(uo);
+  } = r, l = [], f = e.trim().split(mt);
   let c = "";
   for (let p = f.length - 1; p >= 0; p -= 1) {
     const b = f[p], {
       isExternal: y,
       modifiers: w,
-      hasImportantModifier: R,
-      baseClassName: I,
-      maybePostfixModifierPosition: v
-    } = o(b);
+      hasImportantModifier: I,
+      baseClassName: M,
+      maybePostfixModifierPosition: x
+    } = t(b);
     if (y) {
       c = b + (c.length > 0 ? " " + c : c);
       continue;
     }
-    let k = !!v, N = t(k ? I.substring(0, v) : I);
+    let k = !!x, N = o(k ? M.substring(0, x) : M);
     if (!N) {
       if (!k) {
         c = b + (c.length > 0 ? " " + c : c);
         continue;
       }
-      if (N = t(I), !N) {
+      if (N = o(M), !N) {
         c = b + (c.length > 0 ? " " + c : c);
         continue;
       }
       k = !1;
     }
-    const K = w.length === 0 ? "" : w.length === 1 ? w[0] : i(w).join(":"), Y = R ? K + me : K, B = Y + N;
+    const K = w.length === 0 ? "" : w.length === 1 ? w[0] : i(w).join(":"), Y = I ? K + pe : K, B = Y + N;
     if (l.indexOf(B) > -1)
       continue;
     l.push(B);
@@ -258,47 +258,47 @@ const Xe = (e, r) => {
     c = b + (c.length > 0 ? " " + c : c);
   }
   return c;
-}, fo = (...e) => {
-  let r = 0, o, t, s = "";
+}, pt = (...e) => {
+  let r = 0, t, o, s = "";
   for (; r < e.length; )
-    (o = e[r++]) && (t = Ne(o)) && (s && (s += " "), s += t);
+    (t = e[r++]) && (o = Ne(t)) && (s && (s += " "), s += o);
   return s;
 }, Ne = (e) => {
   if (typeof e == "string")
     return e;
-  let r, o = "";
-  for (let t = 0; t < e.length; t++)
-    e[t] && (r = Ne(e[t])) && (o && (o += " "), o += r);
-  return o;
-}, bo = (e, ...r) => {
-  let o, t, s, i;
+  let r, t = "";
+  for (let o = 0; o < e.length; o++)
+    e[o] && (r = Ne(e[o])) && (t && (t += " "), t += r);
+  return t;
+}, ft = (e, ...r) => {
+  let t, o, s, i;
   const l = (c) => {
     const p = r.reduce((b, y) => y(b), e());
-    return o = mo(p), t = o.cache.get, s = o.cache.set, i = f, f(c);
+    return t = dt(p), o = t.cache.get, s = t.cache.set, i = f, f(c);
   }, f = (c) => {
-    const p = t(c);
+    const p = o(c);
     if (p)
       return p;
-    const b = po(c, o);
+    const b = ut(c, t);
     return s(c, b), b;
   };
-  return i = l, (...c) => i(fo(...c));
-}, go = [], g = (e) => {
-  const r = (o) => o[e] || go;
+  return i = l, (...c) => i(pt(...c));
+}, bt = [], g = (e) => {
+  const r = (t) => t[e] || bt;
   return r.isThemeGetter = !0, r;
-}, Oe = /^\[(?:(\w[\w-]*):)?(.+)\]$/i, je = /^\((?:(\w[\w-]*):)?(.+)\)$/i, ho = /^\d+\/\d+$/, yo = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/, wo = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/, ko = /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix)\(.+\)$/, xo = /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/, vo = /^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/, D = (e) => ho.test(e), u = (e) => !!e && !Number.isNaN(Number(e)), $ = (e) => !!e && Number.isInteger(Number(e)), ie = (e) => e.endsWith("%") && u(e.slice(0, -1)), P = (e) => yo.test(e), Co = () => !0, zo = (e) => (
+}, Oe = /^\[(?:(\w[\w-]*):)?(.+)\]$/i, je = /^\((?:(\w[\w-]*):)?(.+)\)$/i, gt = /^\d+\/\d+$/, ht = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/, yt = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/, wt = /^(rgba?|hsla?|hwb|(ok)?(lab|lch)|color-mix)\(.+\)$/, kt = /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/, vt = /^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/, D = (e) => gt.test(e), u = (e) => !!e && !Number.isNaN(Number(e)), $ = (e) => !!e && Number.isInteger(Number(e)), de = (e) => e.endsWith("%") && u(e.slice(0, -1)), G = (e) => ht.test(e), xt = () => !0, Ct = (e) => (
   // `colorFunctionRegex` check is necessary because color functions can have percentages in them which which would be incorrectly classified as lengths.
   // For example, `hsl(0 0% 0%)` would be classified as a length without this check.
   // I could also use lookbehind assertion in `lengthUnitRegex` but that isn't supported widely enough.
-  wo.test(e) && !ko.test(e)
-), Le = () => !1, _o = (e) => xo.test(e), Ao = (e) => vo.test(e), So = (e) => !n(e) && !a(e), Ro = (e) => U(e, Fe, Le), n = (e) => Oe.test(e), L = (e) => U(e, We, zo), ce = (e) => U(e, Vo, u), Ae = (e) => U(e, Ee, Le), Io = (e) => U(e, Be, Ao), te = (e) => U(e, De, _o), a = (e) => je.test(e), J = (e) => q(e, We), Mo = (e) => q(e, Go), Se = (e) => q(e, Ee), To = (e) => q(e, Fe), Po = (e) => q(e, Be), re = (e) => q(e, De, !0), U = (e, r, o) => {
-  const t = Oe.exec(e);
-  return t ? t[1] ? r(t[1]) : o(t[2]) : !1;
-}, q = (e, r, o = !1) => {
-  const t = je.exec(e);
-  return t ? t[1] ? r(t[1]) : o : !1;
-}, Ee = (e) => e === "position" || e === "percentage", Be = (e) => e === "image" || e === "url", Fe = (e) => e === "length" || e === "size" || e === "bg-size", We = (e) => e === "length", Vo = (e) => e === "number", Go = (e) => e === "family-name", De = (e) => e === "shadow", $o = () => {
-  const e = g("color"), r = g("font"), o = g("text"), t = g("font-weight"), s = g("tracking"), i = g("leading"), l = g("breakpoint"), f = g("container"), c = g("spacing"), p = g("radius"), b = g("shadow"), y = g("inset-shadow"), w = g("text-shadow"), R = g("drop-shadow"), I = g("blur"), v = g("perspective"), k = g("aspect"), N = g("ease"), K = g("animate"), Y = () => ["auto", "avoid", "all", "avoid-page", "page", "left", "right", "column"], B = () => [
+  yt.test(e) && !wt.test(e)
+), Le = () => !1, _t = (e) => kt.test(e), zt = (e) => vt.test(e), At = (e) => !n(e) && !a(e), St = (e) => U(e, Fe, Le), n = (e) => Oe.test(e), L = (e) => U(e, We, Ct), me = (e) => U(e, Vt, u), Ae = (e) => U(e, Ee, Le), Rt = (e) => U(e, Be, zt), oe = (e) => U(e, De, _t), a = (e) => je.test(e), J = (e) => q(e, We), Tt = (e) => q(e, Pt), Se = (e) => q(e, Ee), It = (e) => q(e, Fe), Mt = (e) => q(e, Be), re = (e) => q(e, De, !0), U = (e, r, t) => {
+  const o = Oe.exec(e);
+  return o ? o[1] ? r(o[1]) : t(o[2]) : !1;
+}, q = (e, r, t = !1) => {
+  const o = je.exec(e);
+  return o ? o[1] ? r(o[1]) : t : !1;
+}, Ee = (e) => e === "position" || e === "percentage", Be = (e) => e === "image" || e === "url", Fe = (e) => e === "length" || e === "size" || e === "bg-size", We = (e) => e === "length", Vt = (e) => e === "number", Pt = (e) => e === "family-name", De = (e) => e === "shadow", Gt = () => {
+  const e = g("color"), r = g("font"), t = g("text"), o = g("font-weight"), s = g("tracking"), i = g("leading"), l = g("breakpoint"), f = g("container"), c = g("spacing"), p = g("radius"), b = g("shadow"), y = g("inset-shadow"), w = g("text-shadow"), I = g("drop-shadow"), M = g("blur"), x = g("perspective"), k = g("aspect"), N = g("ease"), K = g("animate"), Y = () => ["auto", "avoid", "all", "avoid-page", "page", "left", "right", "column"], B = () => [
     "center",
     "top",
     "bottom",
@@ -316,15 +316,15 @@ const Xe = (e, r) => {
     "bottom-left",
     // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
     "left-bottom"
-  ], F = () => [...B(), a, n], O = () => ["auto", "hidden", "clip", "visible", "scroll"], X = () => ["auto", "contain", "none"], m = () => [a, n, c], M = () => [D, "full", "auto", ...m()], be = () => [$, "none", "subgrid", a, n], ge = () => ["auto", {
+  ], F = () => [...B(), a, n], O = () => ["auto", "hidden", "clip", "visible", "scroll"], X = () => ["auto", "contain", "none"], m = () => [a, n, c], V = () => [D, "full", "auto", ...m()], be = () => [$, "none", "subgrid", a, n], ge = () => ["auto", {
     span: ["full", $, a, n]
-  }, $, a, n], H = () => [$, "auto", a, n], he = () => ["auto", "min", "max", "fr", a, n], ne = () => ["start", "end", "center", "between", "around", "evenly", "stretch", "baseline", "center-safe", "end-safe"], W = () => ["start", "end", "center", "stretch", "center-safe", "end-safe"], T = () => ["auto", ...m()], j = () => [D, "auto", "full", "dvw", "dvh", "lvw", "lvh", "svw", "svh", "min", "max", "fit", ...m()], d = () => [e, a, n], ye = () => [...B(), Se, Ae, {
+  }, $, a, n], H = () => [$, "auto", a, n], he = () => ["auto", "min", "max", "fr", a, n], le = () => ["start", "end", "center", "between", "around", "evenly", "stretch", "baseline", "center-safe", "end-safe"], W = () => ["start", "end", "center", "stretch", "center-safe", "end-safe"], P = () => ["auto", ...m()], j = () => [D, "auto", "full", "dvw", "dvh", "lvw", "lvh", "svw", "svh", "min", "max", "fit", ...m()], d = () => [e, a, n], ye = () => [...B(), Se, Ae, {
     position: [a, n]
   }], we = () => ["no-repeat", {
     repeat: ["", "x", "y", "space", "round"]
-  }], ke = () => ["auto", "cover", "contain", To, Ro, {
+  }], ke = () => ["auto", "cover", "contain", It, St, {
     size: [a, n]
-  }], ae = () => [ie, J, L], x = () => [
+  }], ie = () => [de, J, L], v = () => [
     // Deprecated since Tailwind CSS v4.0.0
     "",
     "none",
@@ -332,35 +332,35 @@ const Xe = (e, r) => {
     p,
     a,
     n
-  ], C = () => ["", u, J, L], Q = () => ["solid", "dashed", "dotted", "double"], xe = () => ["normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"], h = () => [u, ie, Se, Ae], ve = () => [
+  ], C = () => ["", u, J, L], Q = () => ["solid", "dashed", "dotted", "double"], ve = () => ["normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"], h = () => [u, de, Se, Ae], xe = () => [
     // Deprecated since Tailwind CSS v4.0.0
     "",
     "none",
-    I,
+    M,
     a,
     n
-  ], Z = () => ["none", u, a, n], ee = () => ["none", u, a, n], le = () => [u, a, n], oe = () => [D, "full", ...m()];
+  ], Z = () => ["none", u, a, n], ee = () => ["none", u, a, n], ce = () => [u, a, n], te = () => [D, "full", ...m()];
   return {
     cacheSize: 500,
     theme: {
       animate: ["spin", "ping", "pulse", "bounce"],
       aspect: ["video"],
-      blur: [P],
-      breakpoint: [P],
-      color: [Co],
-      container: [P],
-      "drop-shadow": [P],
+      blur: [G],
+      breakpoint: [G],
+      color: [xt],
+      container: [G],
+      "drop-shadow": [G],
       ease: ["in", "out", "in-out"],
-      font: [So],
+      font: [At],
       "font-weight": ["thin", "extralight", "light", "normal", "medium", "semibold", "bold", "extrabold", "black"],
-      "inset-shadow": [P],
+      "inset-shadow": [G],
       leading: ["none", "tight", "snug", "normal", "relaxed", "loose"],
       perspective: ["dramatic", "near", "normal", "midrange", "distant", "none"],
-      radius: [P],
-      shadow: [P],
+      radius: [G],
+      shadow: [G],
       spacing: ["px", u],
-      text: [P],
-      "text-shadow": [P],
+      text: [G],
+      "text-shadow": [G],
       tracking: ["tighter", "tight", "normal", "wide", "wider", "widest"]
     },
     classGroups: {
@@ -517,63 +517,63 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       inset: [{
-        inset: M()
+        inset: V()
       }],
       /**
        * Right / Left
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       "inset-x": [{
-        "inset-x": M()
+        "inset-x": V()
       }],
       /**
        * Top / Bottom
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       "inset-y": [{
-        "inset-y": M()
+        "inset-y": V()
       }],
       /**
        * Start
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       start: [{
-        start: M()
+        start: V()
       }],
       /**
        * End
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       end: [{
-        end: M()
+        end: V()
       }],
       /**
        * Top
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       top: [{
-        top: M()
+        top: V()
       }],
       /**
        * Right
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       right: [{
-        right: M()
+        right: V()
       }],
       /**
        * Bottom
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       bottom: [{
-        bottom: M()
+        bottom: V()
       }],
       /**
        * Left
        * @see https://tailwindcss.com/docs/top-right-bottom-left
        */
       left: [{
-        left: M()
+        left: V()
       }],
       /**
        * Visibility
@@ -742,7 +742,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/justify-content
        */
       "justify-content": [{
-        justify: [...ne(), "normal"]
+        justify: [...le(), "normal"]
       }],
       /**
        * Justify Items
@@ -763,7 +763,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/align-content
        */
       "align-content": [{
-        content: ["normal", ...ne()]
+        content: ["normal", ...le()]
       }],
       /**
        * Align Items
@@ -788,7 +788,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/place-content
        */
       "place-content": [{
-        "place-content": ne()
+        "place-content": le()
       }],
       /**
        * Place Items
@@ -873,63 +873,63 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/margin
        */
       m: [{
-        m: T()
+        m: P()
       }],
       /**
        * Margin X
        * @see https://tailwindcss.com/docs/margin
        */
       mx: [{
-        mx: T()
+        mx: P()
       }],
       /**
        * Margin Y
        * @see https://tailwindcss.com/docs/margin
        */
       my: [{
-        my: T()
+        my: P()
       }],
       /**
        * Margin Start
        * @see https://tailwindcss.com/docs/margin
        */
       ms: [{
-        ms: T()
+        ms: P()
       }],
       /**
        * Margin End
        * @see https://tailwindcss.com/docs/margin
        */
       me: [{
-        me: T()
+        me: P()
       }],
       /**
        * Margin Top
        * @see https://tailwindcss.com/docs/margin
        */
       mt: [{
-        mt: T()
+        mt: P()
       }],
       /**
        * Margin Right
        * @see https://tailwindcss.com/docs/margin
        */
       mr: [{
-        mr: T()
+        mr: P()
       }],
       /**
        * Margin Bottom
        * @see https://tailwindcss.com/docs/margin
        */
       mb: [{
-        mb: T()
+        mb: P()
       }],
       /**
        * Margin Left
        * @see https://tailwindcss.com/docs/margin
        */
       ml: [{
-        ml: T()
+        ml: P()
       }],
       /**
        * Space Between X
@@ -1032,7 +1032,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/font-size
        */
       "font-size": [{
-        text: ["base", o, J, L]
+        text: ["base", t, J, L]
       }],
       /**
        * Font Smoothing
@@ -1049,21 +1049,21 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/font-weight
        */
       "font-weight": [{
-        font: [t, a, ce]
+        font: [o, a, me]
       }],
       /**
        * Font Stretch
        * @see https://tailwindcss.com/docs/font-stretch
        */
       "font-stretch": [{
-        "font-stretch": ["ultra-condensed", "extra-condensed", "condensed", "semi-condensed", "normal", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded", ie, n]
+        "font-stretch": ["ultra-condensed", "extra-condensed", "condensed", "semi-condensed", "normal", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded", de, n]
       }],
       /**
        * Font Family
        * @see https://tailwindcss.com/docs/font-family
        */
       "font-family": [{
-        font: [Mo, n, r]
+        font: [Tt, n, r]
       }],
       /**
        * Font Variant Numeric
@@ -1107,7 +1107,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/line-clamp
        */
       "line-clamp": [{
-        "line-clamp": [u, "none", a, ce]
+        "line-clamp": [u, "none", a, me]
       }],
       /**
        * Line Height
@@ -1318,7 +1318,7 @@ const Xe = (e, r) => {
           }, $, a, n],
           radial: ["", a, n],
           conic: [$, a, n]
-        }, Po, Io]
+        }, Mt, Rt]
       }],
       /**
        * Background Color
@@ -1332,21 +1332,21 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/gradient-color-stops
        */
       "gradient-from-pos": [{
-        from: ae()
+        from: ie()
       }],
       /**
        * Gradient Color Stops Via Position
        * @see https://tailwindcss.com/docs/gradient-color-stops
        */
       "gradient-via-pos": [{
-        via: ae()
+        via: ie()
       }],
       /**
        * Gradient Color Stops To Position
        * @see https://tailwindcss.com/docs/gradient-color-stops
        */
       "gradient-to-pos": [{
-        to: ae()
+        to: ie()
       }],
       /**
        * Gradient Color Stops From
@@ -1377,105 +1377,105 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/border-radius
        */
       rounded: [{
-        rounded: x()
+        rounded: v()
       }],
       /**
        * Border Radius Start
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-s": [{
-        "rounded-s": x()
+        "rounded-s": v()
       }],
       /**
        * Border Radius End
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-e": [{
-        "rounded-e": x()
+        "rounded-e": v()
       }],
       /**
        * Border Radius Top
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-t": [{
-        "rounded-t": x()
+        "rounded-t": v()
       }],
       /**
        * Border Radius Right
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-r": [{
-        "rounded-r": x()
+        "rounded-r": v()
       }],
       /**
        * Border Radius Bottom
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-b": [{
-        "rounded-b": x()
+        "rounded-b": v()
       }],
       /**
        * Border Radius Left
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-l": [{
-        "rounded-l": x()
+        "rounded-l": v()
       }],
       /**
        * Border Radius Start Start
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-ss": [{
-        "rounded-ss": x()
+        "rounded-ss": v()
       }],
       /**
        * Border Radius Start End
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-se": [{
-        "rounded-se": x()
+        "rounded-se": v()
       }],
       /**
        * Border Radius End End
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-ee": [{
-        "rounded-ee": x()
+        "rounded-ee": v()
       }],
       /**
        * Border Radius End Start
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-es": [{
-        "rounded-es": x()
+        "rounded-es": v()
       }],
       /**
        * Border Radius Top Left
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-tl": [{
-        "rounded-tl": x()
+        "rounded-tl": v()
       }],
       /**
        * Border Radius Top Right
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-tr": [{
-        "rounded-tr": x()
+        "rounded-tr": v()
       }],
       /**
        * Border Radius Bottom Right
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-br": [{
-        "rounded-br": x()
+        "rounded-br": v()
       }],
       /**
        * Border Radius Bottom Left
        * @see https://tailwindcss.com/docs/border-radius
        */
       "rounded-bl": [{
-        "rounded-bl": x()
+        "rounded-bl": v()
       }],
       /**
        * Border Width
@@ -1690,7 +1690,7 @@ const Xe = (e, r) => {
           "none",
           b,
           re,
-          te
+          oe
         ]
       }],
       /**
@@ -1705,7 +1705,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-shadow
        */
       "inset-shadow": [{
-        "inset-shadow": ["none", y, re, te]
+        "inset-shadow": ["none", y, re, oe]
       }],
       /**
        * Inset Box Shadow Color
@@ -1772,7 +1772,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/text-shadow
        */
       "text-shadow": [{
-        "text-shadow": ["none", w, re, te]
+        "text-shadow": ["none", w, re, oe]
       }],
       /**
        * Text Shadow Color
@@ -1793,14 +1793,14 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/mix-blend-mode
        */
       "mix-blend": [{
-        "mix-blend": [...xe(), "plus-darker", "plus-lighter"]
+        "mix-blend": [...ve(), "plus-darker", "plus-lighter"]
       }],
       /**
        * Background Blend Mode
        * @see https://tailwindcss.com/docs/background-blend-mode
        */
       "bg-blend": [{
-        "bg-blend": xe()
+        "bg-blend": ve()
       }],
       /**
        * Mask Clip
@@ -2019,7 +2019,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/blur
        */
       blur: [{
-        blur: ve()
+        blur: xe()
       }],
       /**
        * Brightness
@@ -2044,9 +2044,9 @@ const Xe = (e, r) => {
           // Deprecated since Tailwind CSS v4.0.0
           "",
           "none",
-          R,
+          I,
           re,
-          te
+          oe
         ]
       }],
       /**
@@ -2109,7 +2109,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/backdrop-blur
        */
       "backdrop-blur": [{
-        "backdrop-blur": ve()
+        "backdrop-blur": xe()
       }],
       /**
        * Backdrop Brightness
@@ -2272,7 +2272,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/perspective
        */
       perspective: [{
-        perspective: [v, a, n]
+        perspective: [x, a, n]
       }],
       /**
        * Perspective Origin
@@ -2347,21 +2347,21 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/skew
        */
       skew: [{
-        skew: le()
+        skew: ce()
       }],
       /**
        * Skew X
        * @see https://tailwindcss.com/docs/skew
        */
       "skew-x": [{
-        "skew-x": le()
+        "skew-x": ce()
       }],
       /**
        * Skew Y
        * @see https://tailwindcss.com/docs/skew
        */
       "skew-y": [{
-        "skew-y": le()
+        "skew-y": ce()
       }],
       /**
        * Transform
@@ -2389,28 +2389,28 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/translate
        */
       translate: [{
-        translate: oe()
+        translate: te()
       }],
       /**
        * Translate X
        * @see https://tailwindcss.com/docs/translate
        */
       "translate-x": [{
-        "translate-x": oe()
+        "translate-x": te()
       }],
       /**
        * Translate Y
        * @see https://tailwindcss.com/docs/translate
        */
       "translate-y": [{
-        "translate-y": oe()
+        "translate-y": te()
       }],
       /**
        * Translate Z
        * @see https://tailwindcss.com/docs/translate
        */
       "translate-z": [{
-        "translate-z": oe()
+        "translate-z": te()
       }],
       /**
        * Translate None
@@ -2692,7 +2692,7 @@ const Xe = (e, r) => {
        * @see https://tailwindcss.com/docs/stroke-width
        */
       "stroke-w": [{
-        stroke: [u, J, L, ce]
+        stroke: [u, J, L, me]
       }],
       /**
        * Stroke
@@ -2767,50 +2767,50 @@ const Xe = (e, r) => {
     },
     orderSensitiveModifiers: ["*", "**", "after", "backdrop", "before", "details-content", "file", "first-letter", "first-line", "marker", "placeholder", "selection"]
   };
-}, No = /* @__PURE__ */ bo($o);
+}, $t = /* @__PURE__ */ ft(Gt);
 function E(...e) {
-  return No(Pe(e));
+  return $t(Ve(e));
 }
-function pe(e, r, o) {
-  return Me(() => {
-    const t = o;
+function ne(e, r, t) {
+  return Ie(() => {
+    const o = t;
     return E(
       e(r),
       r.class,
-      t
+      o
     );
   });
 }
-const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, fe = (e, r) => (o) => {
-  var t;
-  if (r?.variants == null) return Ie(e, o?.class, o?.className);
+const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Te = Ve, ae = (e, r) => (t) => {
+  var o;
+  if (r?.variants == null) return Te(e, t?.class, t?.className);
   const { variants: s, defaultVariants: i } = r, l = Object.keys(s).map((p) => {
-    const b = o?.[p], y = i?.[p];
+    const b = t?.[p], y = i?.[p];
     if (b === null) return null;
     const w = Re(b) || Re(y);
     return s[p][w];
-  }), f = o && Object.entries(o).reduce((p, b) => {
+  }), f = t && Object.entries(t).reduce((p, b) => {
     let [y, w] = b;
     return w === void 0 || (p[y] = w), p;
-  }, {}), c = r == null || (t = r.compoundVariants) === null || t === void 0 ? void 0 : t.reduce((p, b) => {
-    let { class: y, className: w, ...R } = b;
-    return Object.entries(R).every((I) => {
-      let [v, k] = I;
+  }, {}), c = r == null || (o = r.compoundVariants) === null || o === void 0 ? void 0 : o.reduce((p, b) => {
+    let { class: y, className: w, ...I } = b;
+    return Object.entries(I).every((M) => {
+      let [x, k] = M;
       return Array.isArray(k) ? k.includes({
         ...i,
         ...f
-      }[v]) : {
+      }[x]) : {
         ...i,
         ...f
-      }[v] === k;
+      }[x] === k;
     }) ? [
       ...p,
       y,
       w
     ] : p;
   }, []);
-  return Ie(e, l, c, o?.class, o?.className);
-}, Oo = fe(
+  return Te(e, l, c, t?.class, t?.className);
+}, Nt = ae(
   "btn",
   {
     variants: {
@@ -2870,7 +2870,7 @@ const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, f
       htmlTag: "div"
     }
   }
-), jo = ["type", "disabled", "autofocus"], Uo = /* @__PURE__ */ V({
+), Ot = ["type", "disabled", "autofocus"], Ut = /* @__PURE__ */ R({
   __name: "Btn",
   props: {
     color: {},
@@ -2885,18 +2885,18 @@ const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, f
     autofocus: {}
   },
   setup(e) {
-    const r = e, o = pe(Oo, r), t = Me(() => r.renderAs ?? "button");
-    return (s, i) => t.value === "button" ? (z(), G("button", {
+    const r = e, t = ne(Nt, r), o = Ie(() => r.htmlTag ?? "button");
+    return (s, i) => o.value === "button" ? (_(), T("button", {
       key: 0,
-      class: _(A(o)),
+      class: z(A(t)),
       type: r.type,
       disabled: r.disabled,
       autofocus: r.autofocus
     }, [
       S(s.$slots, "default")
-    ], 10, jo)) : (z(), Ue(qe(t.value), {
+    ], 10, Ot)) : (_(), Ue(qe(o.value), {
       key: 1,
-      class: _(A(o))
+      class: z(A(t))
     }, {
       default: Ye(() => [
         S(s.$slots, "default")
@@ -2904,7 +2904,7 @@ const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, f
       _: 3
     }, 8, ["class"]));
   }
-}), Lo = fe(
+}), jt = ae(
   "card",
   {
     variants: {
@@ -2932,7 +2932,7 @@ const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, f
       size: "md"
     }
   }
-), qo = /* @__PURE__ */ V({
+), qt = /* @__PURE__ */ R({
   __name: "Card",
   props: {
     modifier: {},
@@ -2941,103 +2941,103 @@ const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, f
     class: {}
   },
   setup(e) {
-    const o = pe(Lo, e);
-    return (t, s) => (z(), G("div", {
-      class: _(A(o))
+    const t = ne(jt, e);
+    return (o, s) => (_(), T("div", {
+      class: z(A(t))
     }, [
-      S(t.$slots, "default")
+      S(o.$slots, "default")
     ], 2));
   }
-}), Yo = /* @__PURE__ */ V({
+}), Yt = /* @__PURE__ */ R({
   __name: "CardActions",
   props: {
     class: {}
   },
   setup(e) {
-    const o = E(
+    const t = E(
       "card-actions  justify-end",
       e.class
     );
-    return (t, s) => (z(), G("div", {
-      class: _(A(o))
+    return (o, s) => (_(), T("div", {
+      class: z(A(t))
     }, [
-      S(t.$slots, "default")
+      S(o.$slots, "default")
     ], 2));
   }
-}), Xo = /* @__PURE__ */ V({
+}), Xt = /* @__PURE__ */ R({
   __name: "CardFigure",
   props: {
     class: {}
   },
   setup(e) {
-    const o = E(
+    const t = E(
       e.class
     );
-    return (t, s) => (z(), G("figure", {
-      class: _(A(o))
+    return (o, s) => (_(), T("figure", {
+      class: z(A(t))
     }, [
-      S(t.$slots, "default")
+      S(o.$slots, "default")
     ], 2));
   }
-}), Jo = /* @__PURE__ */ V({
+}), Jt = /* @__PURE__ */ R({
   __name: "CardBody",
   props: {
     class: {}
   },
   setup(e) {
-    const o = E(
+    const t = E(
       "card-body",
       e.class
     );
-    return (t, s) => (z(), G("div", {
-      class: _(A(o))
+    return (o, s) => (_(), T("div", {
+      class: z(A(t))
     }, [
-      S(t.$slots, "default")
+      S(o.$slots, "default")
     ], 2));
   }
-}), Ko = /* @__PURE__ */ V({
+}), Kt = /* @__PURE__ */ R({
   __name: "CardTitle",
   props: {
     class: {}
   },
   setup(e) {
-    const o = E(
+    const t = E(
       "card-title",
       e.class
     );
-    return (t, s) => (z(), G("h2", {
-      class: _(A(o))
+    return (o, s) => (_(), T("h2", {
+      class: z(A(t))
     }, [
-      S(t.$slots, "default")
+      S(o.$slots, "default")
     ], 2));
   }
-}), Eo = { class: "avatar" }, Ho = /* @__PURE__ */ V({
+}), Lt = { class: "avatar" }, Ht = /* @__PURE__ */ R({
   __name: "Avatar",
   props: {
     class: {}
   },
   setup(e) {
     const r = e;
-    return (o, t) => (z(), G("div", Eo, [
-      de("div", {
-        class: _(A(E)(r.class))
+    return (t, o) => (_(), T("div", Lt, [
+      ue("div", {
+        class: z(A(E)(r.class))
       }, [
-        S(o.$slots, "default")
+        S(t.$slots, "default")
       ], 2)
     ]));
   }
-}), Qo = /* @__PURE__ */ V({
+}), Qt = /* @__PURE__ */ R({
   __name: "AvatarGroup",
   props: {
     class: {}
   },
   setup(e) {
     const r = e;
-    return (o, t) => (z(), G("div", {
-      class: _(["avatar-group -space-x-6", A(E)(r.class)])
+    return (t, o) => (_(), T("div", {
+      class: z(["avatar-group -space-x-6", A(E)(r.class)])
     }, null, 2));
   }
-}), Bo = fe(
+}), Et = ae(
   "menu",
   {
     variants: {
@@ -3060,10 +3060,10 @@ const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, f
       modifier: "default"
     }
   }
-), Fo = { tabindex: "0" }, Wo = {
+), Bt = { tabindex: "0" }, Ft = {
   tabindex: "-1",
   class: "dropdown-content menu"
-}, Zo = /* @__PURE__ */ V({
+}, Zt = /* @__PURE__ */ R({
   __name: "Dropdown",
   props: {
     modifier: {},
@@ -3071,27 +3071,75 @@ const Re = (e) => typeof e == "boolean" ? `${e}` : e === 0 ? "0" : e, Ie = Pe, f
     class: {}
   },
   setup(e) {
-    const o = pe(Bo, e);
-    return (t, s) => (z(), G("div", {
-      class: _(A(o))
+    const t = ne(Et, e);
+    return (o, s) => (_(), T("div", {
+      class: z(A(t))
     }, [
-      de("div", Fo, [
-        S(t.$slots, "trigger")
+      ue("div", Bt, [
+        S(o.$slots, "trigger")
       ]),
-      de("ul", Wo, [
-        S(t.$slots, "content")
+      ue("ul", Ft, [
+        S(o.$slots, "content")
       ])
+    ], 2));
+  }
+}), Wt = ae(
+  "alert",
+  {
+    variants: {
+      style: {
+        default: "",
+        outline: "alert-outline",
+        dash: "alert-dash",
+        soft: "alert-soft"
+      },
+      color: {
+        default: "",
+        info: "alert-info",
+        success: "alert-success",
+        warning: "alert-warning",
+        error: "alert-error"
+      },
+      direction: {
+        vertical: "alert-vertical",
+        // Vertical layout, good for mobile
+        horizontal: "alert-horizontal"
+        // Horizontal layout, good for desktop
+      }
+    },
+    defaultVariants: {
+      style: "default",
+      color: "default",
+      direction: "horizontal"
+    }
+  }
+), eo = /* @__PURE__ */ R({
+  __name: "Alert",
+  props: {
+    style: {},
+    color: {},
+    direction: {},
+    class: {}
+  },
+  setup(e) {
+    const t = ne(Wt, e);
+    return (o, s) => (_(), T("div", {
+      role: "alert",
+      class: z(A(t))
+    }, [
+      S(o.$slots, "default")
     ], 2));
   }
 });
 export {
-  Ho as Avatar,
-  Qo as AvatarGroup,
-  Uo as Btn,
-  qo as Card,
-  Yo as CardActions,
-  Jo as CardBody,
-  Xo as CardFigure,
-  Ko as CardTitle,
-  Zo as Dropdown
+  eo as Alert,
+  Ht as Avatar,
+  Qt as AvatarGroup,
+  Ut as Btn,
+  qt as Card,
+  Yt as CardActions,
+  Jt as CardBody,
+  Xt as CardFigure,
+  Kt as CardTitle,
+  Zt as Dropdown
 };

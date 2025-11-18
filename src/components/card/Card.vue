@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { useVariantClasses } from '../../composables/useVariantClasses'
+import { useVariantClasses } from '@/composables/useVariantClasses'
 import { cardVariants, type CardVariants } from '.'
 
 // Accept card props

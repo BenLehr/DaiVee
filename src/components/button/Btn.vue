@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { HTMLAttributes } from 'vue'
 import type { ButtonHTMLAttributes } from '@vue/runtime-dom'
 
-import { useVariantClasses } from '../../composables/useVariantClasses'
+import { useVariantClasses } from '@/composables/useVariantClasses'
 import { buttonVariants, type ButtonVariants } from '.'
 
 const props = withDefaults(defineProps<{

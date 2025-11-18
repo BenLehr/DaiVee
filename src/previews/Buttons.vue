@@ -1,6 +1,6 @@
 <script setup>
-import Btn            from "../components/button/Btn.vue";
-import PreviewSection from "../PreviewSection.vue";
+import Btn            from "@/components/button/Btn.vue";
+import PreviewSection from "@/PreviewSection.vue";
 </script>
 
 <template>

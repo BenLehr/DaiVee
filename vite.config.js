@@ -8,6 +8,11 @@ export default defineConfig({
         vue(),
         vueDevTools(),
     ],
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, 'src') // Map `@` to the `src` directory
+        }
+    },
     build:   {
         outDir:        "dist",
         lib:           {
