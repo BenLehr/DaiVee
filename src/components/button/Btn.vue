@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<{
 const btnClass = useVariantClasses(buttonVariants, props)
 
 // Decide which HTML tag / component to render
-const tag = computed(() => props.renderAs ?? 'button')
+const tag = computed(() => props.htmlTag ?? 'button')
 </script>
 
 <template>
