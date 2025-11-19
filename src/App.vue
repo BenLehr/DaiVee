@@ -8,8 +8,9 @@ import Card        from "./components/card/Card.vue";
 import CardTitle   from "./components/card/CardTitle.vue";
 import CardBody    from "./components/card/CardBody.vue";
 import CardActions from "./components/card/CardActions.vue";
-import Btn         from "./components/button/Btn.vue";
+import { Fab }     from "@/components/fab/index.js";
 </script>
+
 
 <template>
 
@@ -23,8 +24,22 @@ import Btn         from "./components/button/Btn.vue";
                 <p>wdwddwdw</p>
                 <p>wdwddwdw</p>
                 <CardActions>
-                    <Btn color="neutral">Neutral</Btn>
-                    <Btn color="primary">Primary</Btn>
+                    <Fab class="">
+                        <template #trigger>
+                            <div class="btn btn-primary">F</div>
+                        </template>
+
+                        <template #close>
+                            <div class="btn btn-error">X</div>
+                        </template>
+
+                        <template #content>
+                            <button class="btn btn-lg">Button A</button>
+                            <button class="btn btn-lg">Button B</button>
+                            <button class="btn btn-lg">Button C</button>
+                        </template>
+
+                    </Fab>
                 </CardActions>
             </CardBody>
         </Card>
@@ -39,7 +54,7 @@ import Btn         from "./components/button/Btn.vue";
             <template #trigger>
 
                 <Avatar>
-                    <img src="https://avatars.githubusercontent.com/u/38668796?v=4" alt=""></img>
+                    <img src="https://avatars.githubusercontent.com/u/38668796?v=4" alt="">
                 </Avatar>
 
             </template>

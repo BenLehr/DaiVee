@@ -3,6 +3,7 @@ import type {HTMLAttributes} from 'vue'
 import {useVariantClasses} from '@/composables/useVariantClasses'
 import {alertVariants, type AlertVariants} from '.'
 
+
 // Accept card props
 const props = defineProps<{
     style?: AlertVariants['style']
