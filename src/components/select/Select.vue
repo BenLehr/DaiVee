@@ -3,30 +3,18 @@ import {type SelectVariantProps, selectVariants} from '.';
 import {HTMLAttributes} from 'vue';
 import {useVariantClasses} from "../../composables/useVariantClasses";
 
-type Props = {
+const props = defineProps<{
     size?: SelectVariantProps['size'];
     color?: SelectVariantProps['color'];
-    style?: SelectVariantProps['style'];
-
+    componentStyle?: SelectVariantProps['componentStyle'];
     class?: HTMLAttributes['class'];
-
-    name?: string;
-    isDisabled?: boolean;
-};
-
-const props = defineProps<Props>();
-const value = defineModel<string | number>();
+}>();
 
 const selectClasses = useVariantClasses(selectVariants, props);
-
 </script>
 
 <template>
-    <select :class="selectClasses"
-            :name="name"
-            :disabled="isDisabled"
-            v-model="value"
-    >
+    <select v-bind="$attrs" :class="selectClasses">
         <slot/>
     </select>
 </template>

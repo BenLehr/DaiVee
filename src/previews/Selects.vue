@@ -2,6 +2,7 @@
 
 import PreviewSection from "../PreviewSection.vue";
 import Select         from "../components/select/Select.vue";
+import { ref }        from "vue";
 
 const themes = [
     'default', 'retro', 'cyberpunk', 'valentine', 'aqua',
@@ -9,12 +10,16 @@ const themes = [
     'lofi', 'dim', 'garden'
 ];
 
+const test = ref();
 </script>
 
 <template>
     <PreviewSection title="Selects">
         <template #default>
-            <Select class="mx-1" color="primary">
+            <div>
+                Selected value: {{test}}
+            </div>
+            <Select class="mx-1" color="primary" componentStyle="ghost"  :value="test" @input="test = $event.target.value">
                 <option value="" disabled selected>Select an option</option>
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>

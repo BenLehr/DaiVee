@@ -20,7 +20,7 @@ export const selectVariants = cva('select', {
             warning: 'select-warning',
             error: 'select-error',
         },
-        style: {
+        componentStyle: {
             default: '',
             ghost: 'select-ghost',
         },
@@ -28,7 +28,7 @@ export const selectVariants = cva('select', {
     defaultVariants: {
         size: 'md',
         color: 'default',
-        style: 'default',
+        componentStyle: 'default',
     },
 });
 
