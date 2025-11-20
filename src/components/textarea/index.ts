@@ -22,7 +22,7 @@ export const textareaVariants = cva(
                 warning: 'textarea-warning',
                 error: 'textarea-error',
             },
-            style: {
+            componentStyle: {
                 default: '',
                 ghost: 'textarea-ghost',
             },
@@ -30,7 +30,7 @@ export const textareaVariants = cva(
         defaultVariants: {
             size: 'md',
             color: 'default',
-            style: 'default',
+            componentStyle: 'default',
         },
     }
 );

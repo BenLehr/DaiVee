@@ -6,7 +6,7 @@ import {useVariantClasses} from '@/composables/useVariantClasses';
 const props = defineProps<{
     size?: TextareaVariantProps['size'];
     color?: TextareaVariantProps['color'];
-    style?: TextareaVariantProps['style'];
+    componentStyle?: TextareaVariantProps['componentStyle'];
     class?: HTMLAttributes['class'];
 }>();
 

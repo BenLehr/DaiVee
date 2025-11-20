@@ -1,6 +1,6 @@
 <script setup>
-import PreviewSection from "../PreviewSection.vue";
-import Textarea from "../components/textarea/Textarea.vue";
+import PreviewSection from "@/PreviewSection.vue";
+import Textarea from "@/components/textarea/Textarea.vue";
 </script>
 
 <template>

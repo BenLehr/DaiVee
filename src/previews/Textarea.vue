@@ -1,9 +1,6 @@
 <script setup lang="ts">
 
-import {Input} from "@/components/input";
-
-import {HTMLAttributes, useAttrs} from 'vue'
-import type {TextareaVariantProps} from "@/components/textarea";
+import {useAttrs} from 'vue'
 import Textarea from "@/components/textarea/Textarea.vue";
 
 defineProps<{
