@@ -7,6 +7,11 @@ import Textarea from "@/previews/Textarea.vue";
 const textInputContent = ref('Hello!')
 const textareaContent = ref('Hello World!')
 
+const onInput = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    alert(target.value)
+}
+
 </script>
 
 <template>
@@ -15,8 +20,8 @@ const textareaContent = ref('Hello World!')
     <p v-html="textareaContent"></p>
 
     <form>
-        <TextInput v-model="textInputContent" ></TextInput>
-        <Textarea v-model="textareaContent" :rows="5" ></Textarea>
+        <TextInput v-model="textInputContent" readonly></TextInput>
+        <Textarea v-model="textareaContent" :rows="5"></Textarea>
     </form>
 
 </template>

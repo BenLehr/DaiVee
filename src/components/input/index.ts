@@ -6,7 +6,7 @@ export const inputVariants = cva(
     'input',
     {
         variants: {
-            style: {
+            componentStyle: {
                 default: '',
                 ghost: 'input-ghost',
             },
@@ -32,7 +32,7 @@ export const inputVariants = cva(
         defaultVariants: {
             color: 'default',
             size: 'md',
-            style: 'default',
+            componentStyle: 'default',
         },
     },
 )

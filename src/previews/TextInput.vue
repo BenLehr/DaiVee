@@ -26,6 +26,9 @@ const onInput = (event: Event) => {
            :value="modelValue"
            :readonly="readonly"
            @input="onInput"
+           size="xs"
+           color="secondary"
+           component-style="ghost"
     ></Input>
 </template>
 

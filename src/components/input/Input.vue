@@ -4,7 +4,7 @@ import {useVariantClasses} from "@/composables/useVariantClasses";
 import {inputVariants, InputVariants} from "./index";
 
 const props = defineProps<{
-    style?: InputVariants['style']
+    componentStyle?: InputVariants['componentStyle']
     color?: InputVariants['color']
     size?: InputVariants['size']
     class?: HTMLAttributes['class']
