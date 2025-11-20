@@ -9,6 +9,7 @@ import CardTitle   from "./components/card/CardTitle.vue";
 import CardBody    from "./components/card/CardBody.vue";
 import CardActions from "./components/card/CardActions.vue";
 import { Fab }     from "@/components/fab/index.js";
+import ExampleForm from "@/previews/ExampleForm.vue";
 </script>
 
 
@@ -17,6 +18,10 @@ import { Fab }     from "@/components/fab/index.js";
     <ThemeSwitch></ThemeSwitch>
 
     <div class="flex flex-col gap-4">
+
+        <ExampleForm></ExampleForm>
+
+        <hr>
 
         <Card class="w-96 bg-primary" :style="'dash'">
             <CardBody>

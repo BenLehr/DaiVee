@@ -4,7 +4,6 @@ import {useVariantClasses} from '@/composables/useVariantClasses'
 import {fabVariants, type FabVariants} from '.'
 import { useSlots } from 'vue'
 
-
 // Accept card props
 const props = defineProps<{
     modifier?: FabVariants['modifier']
@@ -13,9 +12,7 @@ const props = defineProps<{
 
 // Merge CVA + user classes
 const classes = useVariantClasses(fabVariants, props);
-
 const slots = useSlots();
-
 </script>
 
 <template>

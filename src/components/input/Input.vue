@@ -15,7 +15,7 @@ const classes = useVariantClasses(inputVariants, props)
 </script>
 
 <template>
-    <input :class="classes"/>
+    <input v-bind="$attrs" :class="classes"/>
 </template>
 
 <style scoped>
