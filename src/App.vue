@@ -5,7 +5,6 @@ import Lists       from "./previews/Lists.vue";
 import ThemeSwitch   from "./previews/ThemeSwitch.vue";
 import Modals        from "./previews/Modals.vue";
 import Textareas     from "./previews/Textareas.vue";
-import Confirmations from "./previews/Confirmations.vue";
 import ExampleForm   from "@/previews/ExampleForm.vue";
 import Labels        from "./previews/Labels.vue";
 import Fieldsets     from "./previews/Fieldsets.vue";
@@ -87,8 +86,6 @@ import { Fab }       from "@/components/fab/index.js";
         <Labels />
 
         <Textareas />
-
-        <Confirmations />
 
         <Modals />
 
