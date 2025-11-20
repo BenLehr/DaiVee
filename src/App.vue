@@ -1,22 +1,24 @@
 <script setup>
 
-import Buttons     from "./previews/Buttons.vue";
+import Buttons       from "./previews/Buttons.vue";
 import Lists       from "./previews/Lists.vue";
-import ThemeSwitch from "./previews/ThemeSwitch.vue";
-import Textareas   from "./previews/Textareas.vue";
-import Dropdown    from "./components/dropdown/Dropdown.vue";
-import Avatar      from "./components/avatar/Avatar.vue";
-import Card        from "./components/card/Card.vue";
-import CardTitle   from "./components/card/CardTitle.vue";
-import CardBody    from "./components/card/CardBody.vue";
-import CardActions from "./components/card/CardActions.vue";
-import Btn         from "./components/button/Btn.vue";
-import Selects     from "./previews/Selects.vue";
-import { Fab }     from "@/components/fab/index.js";
-import ExampleForm from "@/previews/ExampleForm.vue";
-import Labels      from "./previews/Labels.vue";
-import Fieldsets   from "./previews/Fieldsets.vue";
+import ThemeSwitch   from "./previews/ThemeSwitch.vue";
+import Textareas     from "./previews/Textareas.vue";
+import Confirmations from "./previews/Confirmations.vue";
+import ExampleForm   from "@/previews/ExampleForm.vue";
+import Labels        from "./previews/Labels.vue";
+import Fieldsets     from "./previews/Fieldsets.vue";
+import Dropdown      from "./components/dropdown/Dropdown.vue";
+import Avatar        from "./components/avatar/Avatar.vue";
+import Card          from "./components/card/Card.vue";
+import CardTitle     from "./components/card/CardTitle.vue";
+import CardBody      from "./components/card/CardBody.vue";
+import CardActions   from "./components/card/CardActions.vue";
+import Btn           from "./components/button/Btn.vue";
+import Selects       from "./previews/Selects.vue";
+import { Fab }       from "@/components/fab/index.js";
 </script>
+
 
 <template>
 
@@ -78,13 +80,17 @@ import Fieldsets   from "./previews/Fieldsets.vue";
         </Dropdown>
 
         <Selects />
+
         <Fieldsets />
 
         <Labels />
 
+        <Textareas />
+
+        <Confirmations />
+
     </div>
 
-    <Textareas />
 
 </template>
 
