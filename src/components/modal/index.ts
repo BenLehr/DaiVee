@@ -1,6 +1,6 @@
 import {cva, type VariantProps} from "class-variance-authority";
 
-export const confirmationVariants = cva(
+export const modalVariants = cva(
     "modal",
     {
         variants: {
@@ -18,4 +18,4 @@ export const confirmationVariants = cva(
     }
 );
 
-export type ConfirmationVariants = VariantProps<typeof confirmationVariants>
+export type ModalVariants = VariantProps<typeof modalVariants>
