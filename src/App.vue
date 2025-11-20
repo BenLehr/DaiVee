@@ -1,6 +1,7 @@
 <script setup>
 
 import Buttons     from "./previews/Buttons.vue";
+import Lists       from "./previews/Lists.vue";
 import ThemeSwitch from "./previews/ThemeSwitch.vue";
 import Textareas   from "./previews/Textareas.vue";
 import Dropdown    from "./components/dropdown/Dropdown.vue";
@@ -56,6 +57,8 @@ import Fieldsets   from "./previews/Fieldsets.vue";
         <!-- Button's -->
 
         <Buttons></Buttons>
+
+        <Lists></Lists>
 
 
         <Dropdown>
