@@ -4,7 +4,7 @@ import {Input} from "@/components/input";
 
 import { useAttrs } from 'vue'
 
-const props = defineProps<{
+defineProps<{
     modelValue: string,
     readonly?: boolean
 }>();
